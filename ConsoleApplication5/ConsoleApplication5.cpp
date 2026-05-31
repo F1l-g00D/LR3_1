@@ -21,7 +21,7 @@ int main() {
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr));
     cout << "Сервер чекає...\n";
-    ofstream file("received.rtf", ios::binary);
+    ofstream file("received.bat", ios::binary);
     char buffer[1024];
     int bytes;
     sockaddr_in clientAddr{};
@@ -34,7 +34,7 @@ int main() {
         // умовне завершення 
         if (bytes < 1024) break;
     }
-    cout << "Файл отримано\n";
+    cout << "Файл received.bat отримано\n";
     file.close();
     closesocket(serverSocket);
     WSACleanup();
